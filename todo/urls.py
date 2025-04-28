@@ -1,11 +1,12 @@
 from django.urls import path
 
-from .views import list_todos, todo_detail, todo_create, todo_update, todo_delete
+from .views import apiOverview, todo_list, todo_detail, todo_create, todo_update, todo_delete
 
 urlpatterns = [
-    path("", list_todos, name="list_todos"),
-    path("todo_detail/", todo_detail, name="todo_detail"),
-    path("todo_create/", todo_create, name="todo_create"),
-    path("todo_update/", todo_update, name="todo_update"),
-    path("todo_delete/", todo_delete, name="todo_delete"),
+    path("api-overview/", apiOverview, name="api-overview"),
+    path("todo-list/", todo_list, name="todo-list"),
+    path("todo-detail/<str:pk>/", todo_detail, name="todo-detail"),
+    path("todo-create/", todo_create, name="todo-create"),
+    path("todo-update/<str:pk>/", todo_update, name="todo-update"),
+    path("todo-delete/<str:pk>/", todo_delete, name="todo-delete"),
 ]
