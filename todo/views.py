@@ -48,10 +48,12 @@ def todo_create(request):
 
 
 # todo update
-@api_view(['POST'])
+@api_view(['PUT'])
 def todo_update(request, pk):
     todos = get_object_or_404(Todo, id=pk)
+    # Pass the instance (existing object) and the new data
     serializer = TodoSerializer(todos, data=request.data)
+    
     if serializer.is_valid():
         serializer.save()
         return Response(serializer.data, status=status.HTTP_200_OK)
