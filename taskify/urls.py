@@ -24,6 +24,5 @@ from django.http import HttpResponse
                
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', user.home, name="home"),
     path('todo/', include('todo.urls')),
 ]
