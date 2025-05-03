@@ -5,3 +5,4 @@ class TodoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Todo
         fields = '__all__' # all fields
+        read_only_fields = ['author']
