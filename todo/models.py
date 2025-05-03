@@ -1,4 +1,5 @@
-from django.db.models import Model, CharField, DateTimeField, BooleanField
+from django.db.models import Model, CharField, DateTimeField, BooleanField, ForeignKey, CASCADE
+from django.conf import settings
 
 # Create your models here.
 class Todo(Model):
@@ -7,3 +8,4 @@ class Todo(Model):
     created_at = DateTimeField(auto_now_add=True)
     due_date = DateTimeField()
     completed = BooleanField(default=False)
+    author = ForeignKey(settings.AUTH_USER_MODEL, on_delete=CASCADE)
